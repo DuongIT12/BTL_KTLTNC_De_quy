@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi - Nguyễn Thế Dương</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="control-panel">
+            <div class="user-info">
+                <img src="https://th.bing.com/th/id/R.18b3b5be70a4b432d70f1e9196d72cae?rik=LHf%2bYaxJImrJSg&riu=http%3a%2f%2f24h68.com%2fwp-content%2fuploads%2f2021%2f07%2f24hhoc.edu_.vn-logo-tnut-full-hd-1920x1920-1.png&ehk=nUCXHL50xNmsSUWmdOANlIe6Jbsfa8mQS1JPOq0%2bCKo%3d&risl=&pid=ImgRaw&r=0" alt="TNUT Logo" class="logo">
+                <h3>ĐIỀU KHIỂN</h3>
+            </div>
+            
+            <div class="input-section">
+                <div class="field">
+                    <label>Số đĩa (3-8):</label>
+                    <input type="number" id="diskCount" value="3" min="1" max="8">
+                </div>
+                <div class="field">
+                    <label>Tốc độ di chuyển:</label>
+                    <input type="range" id="speed" min="100" max="2000" value="500">
+                    <small><span id="speedVal">500</span>ms</small>
+                </div>
+            </div>
+
+            <div class="actions">
+    <button id="startBtn" class="btn btn-run" onclick="initSimulation()">BẮT ĐẦU</button>
+    <div class="sub-actions" style="display: flex; gap: 5px;">
+        <button id="pauseBtn" class="btn btn-pause" onclick="togglePause()" disabled>TẠM DỪNG</button>
+        <button id="nextBtn" class="btn btn-step" onclick="nextStep()" disabled>BƯỚC TIẾP</button>
+    </div>
+    <button class="btn btn-reset" onclick="resetTowers()">LÀM MỚI</button>
+</div>
+
+            <div class="move-history">
+                <h4>NHẬT KÝ BƯỚC ĐI</h4>
+                <div id="moveLog" class="log-list"></div>
+            </div>
+        </aside>
+
+        <main class="simulation-area">
+            <header class="main-header">
+                <h1>MÔ PHỎNG THÁP HÀ NỘI</h1>
+                <div class="sub-header">
+                    <span>SV: Nguyễn Thế Dương [K58KTP]</span>
+                  
+                </div>
+            </header>
+
+            <section class="dashboard">
+                <div class="card">
+                    <span class="label">Tổng số bước (2^n - 1)</span>
+                    <span id="expectedSteps" class="value">0</span>
+                </div>
+                <div class="card">
+                    <span class="label">Số bước hiện tại</span>
+                    <span id="currentSteps" class="value highlight">0</span>
+                </div>
+            </section>
+
+            <div class="progress-wrapper">
+                <div id="progressBar" class="progress-fill"></div>
+            </div>
+
+            <div class="hanoi-stage">
+                <div id="A" class="peg" data-name="CỘT NGUỒN (A)"><div class="rod"></div></div>
+                <div id="B" class="peg" data-name="TRUNG GIAN (B)"><div class="rod"></div></div>
+                <div id="C" class="peg" data-name="CỘT ĐÍCH (C)"><div class="rod"></div></div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

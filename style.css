@@ -1,0 +1,136 @@
+:root {
+    --bg-main: #f0f2f5;
+    --sidebar-bg: #ffffff;
+    --accent-blue: #007bff;
+    --text-dark: #2d3436;
+    --text-light: #636e72;
+    --success: #00b894;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    margin: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar trắng sạch */
+.control-panel {
+    width: 320px;
+    background: var(--sidebar-bg);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+    padding: 30px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo { width: 60px; margin-bottom: 15px; }
+
+/* Các nút bấm bo góc hiện đại */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.btn-run { background: var(--accent-blue); color: white; }
+.btn-run:hover { background: #0056b3; transform: translateY(-2px); }
+.btn-reset { background: #e9ecef; color: var(--text-dark); }
+
+/* Khu vực mô phỏng */
+.simulation-area {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    flex: 1;
+    text-align: center;
+}
+
+.value { display: block; font-size: 1.5rem; font-weight: 700; color: var(--text-light); }
+.highlight { color: var(--accent-blue); }
+
+/* Tháp và đĩa */
+.hanoi-stage {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 60px;
+}
+
+.peg {
+    width: 200px;
+    height: 320px;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.rod {
+    width: 12px;
+    height: 100%;
+    background: #dfe6e9;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 0;
+}
+
+.peg::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: -40px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.disk {
+    height: 26px;
+    border-radius: 13px;
+    margin-bottom: 3px;
+    z-index: 2;
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Thanh tiến trình */
+.progress-wrapper {
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--success);
+    border-radius: 3px;
+    transition: 0.3s;
+}
